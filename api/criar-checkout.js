@@ -32,6 +32,7 @@ module.exports = async (req, res) => {
       }),
     });
     const data = await r.json().catch(() => ({}));
+    console.log("InfinitePay", r.status, JSON.stringify(data));
     if (!r.ok || !data.url) return res.status(502).json({ erro: "Falha ao criar o checkout" });
     return res.status(200).json({ url: data.url, pedido: orderNsu });
   } catch (e) {
