@@ -3,50 +3,61 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Contribua com nossa igreja</title>
+<meta name="color-scheme" content="dark">
+<title>Contribua com a ADVB</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Figtree:wght@400;500;600&display=swap">
 <style>
-:root{--bg:#faf8f3;--card:#fff;--ink:#1d2a24;--mute:#5d6b63;--green:#1f4a3a;--gold:#b08a3e;--line:#e4dfd2;--soft:#f1ede2;--onGreen:#fff}
-@media (prefers-color-scheme:dark){:root{--bg:#141a17;--card:#1c2420;--ink:#f1efe8;--mute:#a3afa7;--green:#6fb596;--gold:#d4b266;--line:#2c3631;--soft:#232d28;--onGreen:#10201a}}
+@property --ang{syntax:"<angle>";initial-value:0deg;inherits:false}
+:root{--bg:#070f20;--card:#0e1b35;--card2:#12234a;--ink:#eaf0fb;--mute:#8fa3c4;--line:#22345c;--acc:#5aa9ff;--acc2:#9bd0ff;color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Figtree,system-ui,sans-serif}
-main{max-width:460px;margin:0 auto;padding:20px 18px 40px}
-.brand{display:flex;align-items:center;gap:12px;margin:10px 0 6px}
-.logo{width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;font:600 11px Figtree,sans-serif;color:var(--gold);flex:none;overflow:hidden}
-.logo img{width:100%;height:100%;object-fit:cover}
-.brand b{font:600 18px Newsreader,Georgia,serif}.brand span{display:block;font-size:13px;color:var(--mute)}
-h1{font:600 30px/1.15 Newsreader,Georgia,serif;margin:18px 0 8px;color:var(--green)}
+body{margin:0;min-height:100vh;color:var(--ink);font:16px/1.5 Figtree,system-ui,sans-serif;
+background:radial-gradient(900px 420px at 50% -120px,#17306b 0%,transparent 70%),var(--bg)}
+main{max-width:460px;margin:0 auto;padding:max(20px,env(safe-area-inset-top)) 18px 40px}
+.brand{display:flex;align-items:center;gap:14px;margin:8px 0 4px}
+.logo{width:58px;height:58px;border-radius:16px;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;flex:none;overflow:hidden}
+.logo img{width:70%;height:70%;object-fit:contain;mix-blend-mode:screen}
+.brand b{font:600 24px Newsreader,Georgia,serif;letter-spacing:.18em}
+.brand span{display:block;font-size:13px;color:var(--mute)}
+h1{font:600 31px/1.15 Newsreader,Georgia,serif;margin:26px 0 8px}
 p.sub{margin:0 0 22px;color:var(--mute)}
-h2{font:600 15px Figtree,sans-serif;margin:24px 0 10px}
-.amounts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.opt{min-height:56px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;font:600 18px Figtree,sans-serif;cursor:pointer}
-.opt[aria-pressed="true"]{border-color:var(--green);background:var(--green);color:var(--onGreen)}
-.other{margin-top:10px;display:none}.other.on{display:block}
-.other input{width:100%;min-height:56px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:0 16px;font:600 18px Figtree,sans-serif}
-.err{color:#b3261e;font-size:14px;margin-top:6px;min-height:20px}
+h2{font:600 13px Figtree,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:26px 0 10px}
+.amounts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.opt{min-height:60px;border:2px solid transparent;border-radius:16px;color:var(--ink);font:600 19px Figtree,sans-serif;cursor:pointer;
+background:linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--ang),#22345c 0%,#22345c 62%,var(--acc) 82%,var(--acc2) 92%,#22345c 100%) border-box;
+animation:spin 5s linear infinite;transition:transform .15s}
+.opt:active{transform:scale(.97)}
+.opt[aria-pressed="true"]{background:linear-gradient(var(--card2),var(--card2)) padding-box,conic-gradient(from var(--ang),var(--acc) 0%,#22345c 30%,var(--acc2) 55%,#22345c 80%,var(--acc) 100%) border-box;animation-duration:2.6s;box-shadow:0 0 22px rgba(90,169,255,.25)}
+@keyframes spin{to{--ang:360deg}}
+.other{margin-top:12px;display:none}.other.on{display:block}
+.other input{width:100%;min-height:58px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:0 16px;font:600 19px Figtree,sans-serif}
+.err{color:#ff8a80;font-size:14px;margin-top:6px;min-height:20px}
 .methods{display:grid;gap:10px}
-.m{display:flex;align-items:center;gap:12px;min-height:60px;padding:0 16px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;font:500 16px Figtree,sans-serif;text-align:left;cursor:pointer;width:100%}
-.m[aria-pressed="true"]{border-color:var(--green);box-shadow:inset 0 0 0 1px var(--green)}
+.m{display:flex;align-items:center;gap:12px;min-height:62px;padding:0 16px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;font:500 16px Figtree,sans-serif;text-align:left;cursor:pointer;width:100%}
+.m[aria-pressed="true"]{border-color:var(--acc);background:var(--card2)}
 .m small{display:block;color:var(--mute);font-size:13px}
 .dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);flex:none}
-.m[aria-pressed="true"] .dot{border:6px solid var(--green)}
-.cta{width:100%;min-height:58px;margin-top:22px;border:0;border-radius:14px;background:var(--green);color:var(--onGreen);font:600 18px Figtree,sans-serif;cursor:pointer}
+.m[aria-pressed="true"] .dot{border:6px solid var(--acc)}
+.cta{width:100%;min-height:60px;margin-top:22px;border:0;border-radius:16px;background:linear-gradient(135deg,#2f7bff,#5aa9ff);color:#fff;font:600 18px Figtree,sans-serif;cursor:pointer;box-shadow:0 8px 24px rgba(47,123,255,.35)}
 .cta:disabled{opacity:.6;cursor:wait}
-.cta.ghost{background:transparent;color:var(--green);border:1.5px solid var(--green);margin-top:10px}
-button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.cta.ghost{background:transparent;color:var(--acc2);border:1.5px solid var(--line);box-shadow:none;margin-top:10px}
+button:focus-visible,input:focus-visible{outline:3px solid var(--acc2);outline-offset:2px}
 .foot{margin-top:18px;font-size:13px;color:var(--mute);text-align:center}
-.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);margin-top:22px;padding-top:14px}
-.total b{font:600 28px Newsreader,Georgia,serif}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);margin-top:24px;padding-top:16px;color:var(--mute)}
+.total b{font:600 30px Newsreader,Georgia,serif;color:var(--ink)}
 .view{display:none}.view.on{display:block}
-.qrbox{background:#fff;border-radius:16px;padding:14px;width:240px;min-height:240px;margin:18px auto 8px;border:1px solid var(--line);display:grid;place-items:center;text-align:center;color:#555;font-size:14px}
+.qrbox{background:#fff;border-radius:18px;padding:14px;width:240px;min-height:240px;margin:18px auto 8px;display:grid;place-items:center;text-align:center;color:#555;font-size:14px}
 .qrbox img{display:block;width:100%;height:auto}
-.code{background:var(--soft);border-radius:10px;padding:10px 12px;font:12px/1.4 ui-monospace,Menlo,monospace;word-break:break-all;color:var(--mute)}
-.ok{width:64px;height:64px;border-radius:50%;background:var(--green);display:grid;place-items:center;margin:26px auto 10px}
+.code{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;font:12px/1.4 ui-monospace,Menlo,monospace;word-break:break-all;color:var(--mute)}
+.ok{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,#2f7bff,#5aa9ff);display:grid;place-items:center;margin:26px auto 10px}
+.topback{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 4px;margin-top:10px;background:none;border:0;color:var(--acc2);font:500 16px Figtree,sans-serif;cursor:pointer}
+.sum{display:flex;justify-content:space-between;align-items:baseline;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:18px;color:var(--mute)}
+.sum b{font:600 28px Newsreader,Georgia,serif;color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.opt{animation:none}}
 </style>
 </head>
 <body>
 <main>
-<div class="brand"><div class="logo" id="logo">LOGO</div><div><b id="cname">Nome da Igreja</b><span>Contribuições online</span></div></div>
+<div class="brand"><div class="logo"><img id="logoimg" src="logo.png" alt="Logo ADVB"></div><div><b id="cname">ADVB</b><span>Contribuições online</span></div></div>
 
 <section class="view on" id="v1">
 <h1>Contribua com nossa igreja</h1>
@@ -63,10 +74,11 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-o
 </section>
 
 <section class="view" id="v2">
-<h1 style="font-size:26px">Pague com Pix</h1>
+<button class="topback" id="tb2" type="button">&larr; Voltar</button>
+<h1 style="font-size:27px;margin-top:6px">Pague com Pix</h1>
 <p class="sub" style="margin-bottom:0">Abra o app do seu banco e escaneie o código ou use o copia e cola.</p>
 <div class="qrbox" id="qrbox"></div>
-<div class="total" style="border:0"><span>Valor sugerido</span><b id="pixv">R$ 50,00</b></div>
+<div class="total" style="border:0;margin-top:8px"><span>Valor sugerido</span><b id="pixv">R$ 50,00</b></div>
 <p class="foot" style="margin:0 0 10px">Confirme o valor no app do seu banco antes de pagar.</p>
 <div class="code" id="pixcode"></div>
 <button class="cta ghost" id="copy">Copiar código Pix</button>
@@ -74,9 +86,19 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-o
 <button class="cta ghost" id="back">Voltar</button>
 </section>
 
+<section class="view" id="v4">
+<button class="topback" id="tb4" type="button">&larr; Voltar</button>
+<h1 style="font-size:27px;margin-top:6px">Pagar com cartão</h1>
+<p class="sub" style="margin-bottom:0">Você será levado ao ambiente seguro da InfinitePay para informar os dados do cartão. Não guardamos dados de cartão.</p>
+<div class="sum"><span>Valor</span><b id="cardv">R$ 50,00</b></div>
+<div class="err" id="err4" role="alert"></div>
+<button class="cta" id="pay" style="margin-top:8px">Ir para o pagamento</button>
+<button class="cta ghost" id="back4">Voltar</button>
+</section>
+
 <section class="view" id="v3">
-<div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--onGreen)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-<h1 style="text-align:center;font-size:26px">Obrigado!</h1>
+<div class="ok"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+<h1 style="text-align:center;font-size:27px">Obrigado!</h1>
 <p class="sub" style="text-align:center" id="thanks"></p>
 <button class="cta ghost" id="again">Fazer outra contribuição</button>
 </section>
@@ -84,9 +106,8 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-o
 <script>
 // ===== CONFIGURAÇÕES: edite aqui =====
 var CONFIG={
-  nomeIgreja:"Nome da Igreja",
-  logoUrl:"",            // ex.: "logo.png" (arquivo na mesma pasta). Vazio = usa o texto LOGO
-  pixQrImagem:"",        // ex.: "qr-pix.png" (imagem do QR Code do seu Pix)
+  nomeIgreja:"ADVB",
+  pixQrImagem:"",        // ex.: "qr-pix.png" (imagem do QR Code do seu Pix, na mesma pasta)
   pixCopiaECola:"",      // cole aqui o código Pix copia e cola
   minimo:500,            // R$ 5,00 em centavos
   maximo:1000000         // R$ 10.000,00 em centavos
@@ -95,7 +116,7 @@ var CONFIG={
 var fmt=function(c){return "R$ "+(c/100).toFixed(2).replace(".",",").replace(/\B(?=(\d{3})+(?!\d))/g,".")};
 var st={amt:5000,other:false,method:"Pix"};
 var $=function(i){return document.getElementById(i)};
-function show(n){["v1","v2","v3"].forEach(function(v){$(v).classList.toggle("on",v===n)});window.scrollTo(0,0)}
+function show(n){["v1","v2","v3","v4"].forEach(function(v){$(v).classList.toggle("on",v===n)});window.scrollTo(0,0)}
 function parse(s){var t=s.replace(/[^\d,.]/g,"").replace(/\./g,"").replace(",",".");var n=parseFloat(t);return isNaN(n)?0:Math.round(n*100)}
 function drawAmounts(){var h="";[2000,5000,10000].forEach(function(v){h+='<button class="opt" aria-pressed="'+(!st.other&&st.amt===v)+'" data-v="'+v+'">'+fmt(v)+'</button>'});
 h+='<button class="opt" aria-pressed="'+st.other+'" data-o="1">Outro valor</button>';$("amounts").innerHTML=h;
@@ -106,7 +127,6 @@ $("amounts").onclick=function(e){var b=e.target.closest("button");if(!b)return;$
 if(b.dataset.o){st.other=true;st.amt=parse($("custom").value);$("custom").focus()}else{st.other=false;st.amt=+b.dataset.v}drawAmounts()};
 $("custom").oninput=function(){st.amt=parse(this.value);$("total").textContent=st.amt?fmt(st.amt):"R$ 0,00";$("err").textContent=""};
 $("methods").onclick=function(e){var b=e.target.closest("button");if(!b)return;st.method=b.dataset.m;drawMethods()};
-
 $("go").onclick=function(){
   if(st.amt<CONFIG.minimo||st.amt>CONFIG.maximo){$("err").textContent="Informe um valor entre "+fmt(CONFIG.minimo)+" e "+fmt(CONFIG.maximo)+".";return}
   if(st.method==="Pix"){
@@ -115,19 +135,24 @@ $("go").onclick=function(){
     $("pixcode").textContent=CONFIG.pixCopiaECola||"Cole o código Pix copia e cola em CONFIG.";
     show("v2");return;
   }
+  $("cardv").textContent=fmt(st.amt);$("err4").textContent="";show("v4");
+};
+$("pay").onclick=function(){
   var b=this;b.disabled=true;b.textContent="Abrindo pagamento...";
   fetch("/api/criar-checkout",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({centavos:st.amt})})
     .then(function(r){return r.json().then(function(d){return{ok:r.ok,d:d}})})
     .then(function(x){if(x.ok&&x.d.url){location.href=x.d.url}else{throw new Error(x.d.erro||"Erro")}})
-    .catch(function(){$("err").textContent="Não foi possível abrir o pagamento agora. Tente novamente em instantes.";b.disabled=false;b.textContent="Continuar"});
+    .catch(function(){$("err4").textContent="Não foi possível abrir o pagamento agora. Tente novamente em instantes.";b.disabled=false;b.textContent="Ir para o pagamento"});
 };
+function reset4(){var b=$("pay");b.disabled=false;b.textContent="Ir para o pagamento"}
+$("back4").onclick=$("tb4").onclick=function(){reset4();show("v1")};
+$("tb2").onclick=function(){show("v1")};
+window.addEventListener("pageshow",reset4);
 $("copy").onclick=function(){var b=this;if(!CONFIG.pixCopiaECola)return;try{navigator.clipboard.writeText(CONFIG.pixCopiaECola);b.textContent="Código copiado"}catch(e){b.textContent="Selecione e copie o código acima"}setTimeout(function(){b.textContent="Copiar código Pix"},2000)};
 $("back").onclick=function(){show("v1")};
 $("paid").onclick=function(){$("thanks").textContent="Agradecemos a sua contribuição. A igreja confirma o recebimento do Pix na conta.";show("v3")};
 $("again").onclick=function(){history.replaceState(null,"",location.pathname);st={amt:5000,other:false,method:"Pix"};$("custom").value="";drawAmounts();drawMethods();show("v1")};
-
 $("cname").textContent=CONFIG.nomeIgreja;
-if(CONFIG.logoUrl){$("logo").innerHTML='<img src="'+CONFIG.logoUrl+'" alt="Logo">'}
 drawAmounts();drawMethods();
 if(location.search.indexOf("retorno=1")>-1){$("thanks").textContent="Você voltou da página de pagamento. Se concluiu o pagamento, muito obrigado! A confirmação final é feita pela igreja.";show("v3")}
 </script>
